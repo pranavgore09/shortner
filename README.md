@@ -70,8 +70,9 @@ Search using slug value on admin panel.
 - More services can be added to generate most unique slug
 - cache can be implemented (LRU cache from functools)
 - Auxiliary information like visited count can be stored and maintained (but adds complexity)
-- unit tests per service can be added
-- integration tests for entire data flow can be added
+- Unit tests per service can be added
+- Integration tests for entire data flow can be added
+- Add API documentation.
 
 ### Applicaion tear down
 To stop the service and remove containers
