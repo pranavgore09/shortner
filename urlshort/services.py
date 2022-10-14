@@ -2,7 +2,7 @@ import hashlib
 import string
 from random import choice
 
-from urlshort.interface import BaseSlugCreator
+from urlshort.interfaces import BaseSlugCreator
 
 
 class BasicSlugCreatorService(BaseSlugCreator):

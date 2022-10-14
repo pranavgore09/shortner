@@ -1,14 +1,24 @@
+<style>
+    .my-listing td,
+    .my-listing th {
+        text-align: center;
+    }
+</style>
+
 <body>
     <div class="container">
         <h2> URL Shortner</h2>
         <form action="" method="POST" class="form-inline">
             <label for="original_url" class="sr-only">Original URL</label>
-            <input required placeholder="URL" type="url" name="original_url" id="original_url" class="form-control mr-2">
+            <input required placeholder="URL" type="url" name="original_url" id="original_url"
+                class="form-control mr-2">
             <button class="btn btn-success" type="submit"> Make Short </button>
         </form>
-
+        <br>
+        <br>
+        <hr>
         <p>{{ message }}</p>
-        <table>
+        <table class="my-listing">
             <thead>
                 <tr>
                     <th>Original URL</th>
@@ -18,14 +28,20 @@
             </thead>
             <tbody>
                 {% for row in shorts %}
-                    <tr>
-                        
-                        <td>{{ row.original_url }}</td>
-                        <td>{{ row.slug }}</td>
-                        <td>{{ "OK" }}</td>
-                    </tr>
+                <tr>
+
+                    <td>{{ row.original_url }}</td>
+                    <td>{{ row.slug }}</td>
+                    <td>
+                        <a href="{{ row.full_url }}">
+                            {{ row.full_url }}
+                        </a>
+
+                    </td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <hr>
     </div>
 </body>

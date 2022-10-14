@@ -1,5 +1,5 @@
 # Create your views here.
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
@@ -21,7 +21,7 @@ def make_short(request):
         # Implement Controller patternt to avoid changes in views.py
 
         # Select Service
-        
+
         # Use MD5 Slug Creator
         # service = MD5SlugCreatorService(7)
 
@@ -29,15 +29,25 @@ def make_short(request):
         service = BasicSlugCreatorService(10)
 
         short_api = URLShortAPI(service)
-        short_row = short_api.get_or_create(original_url)
+        short_row = short_api.create(original_url)
         if short_row:
             message = 'Record Added'
         else:
             message = 'Error in record creation'
 
-    shorts = URLShort.objects.all()
+    shorts = URLShort.built_in_urls.all()
     template = 'make_short.html'
     return render(request, template, {
         'shorts': shorts,
         'message': message,
     })
+
+
+@csrf_exempt
+def redirect_slug(request, slug=None):
+    if not slug:
+        return HttpResponseBadRequest()
+    short_row = URLShortAPI.get(slug)
+    if not short_row:
+        raise Http404
+    return HttpResponseRedirect(short_row.original_url)
