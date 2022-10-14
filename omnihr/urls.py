@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from urlshort.views import make_short
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/makeshort', make_short),
 ]

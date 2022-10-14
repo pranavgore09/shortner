@@ -1,0 +1,31 @@
+<body>
+    <div class="container">
+        <h2> URL Shortner</h2>
+        <form action="" method="POST" class="form-inline">
+            <label for="original_url" class="sr-only">Original URL</label>
+            <input required placeholder="URL" type="url" name="original_url" id="original_url" class="form-control mr-2">
+            <button class="btn btn-success" type="submit"> Make Short </button>
+        </form>
+
+        <p>{{ message }}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Original URL</th>
+                    <th>Slug</th>
+                    <th>Click to Visit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in shorts %}
+                    <tr>
+                        
+                        <td>{{ row.original_url }}</td>
+                        <td>{{ row.slug }}</td>
+                        <td>{{ "OK" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
