@@ -77,7 +77,9 @@ Search using slug value on admin panel.
 ### Applicaion tear down
 To stop the service and remove containers
 > `make clean`
+
 > `sudo chown -R $USER postgres-data/`
+
 > `rm -rf postgres-data/` (removes all application's data)
 
 ### Re-running the application without build
