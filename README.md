@@ -28,8 +28,6 @@ We will build the image locally, it requires internet connection as it pulls var
 Once build is ready, proceed to run the server using
 > `make dev`
 
-Then visit http://localhost:8000/ to make sure that Basic Django project is up and running.
-
 Now, run migration so that we can start using Django Admin.
 > `make migrate`
 
@@ -37,8 +35,9 @@ Let's create a super user to log into Djagno Admin
 >`make createsuperuser`
 
 
-Visit http://localhost:8000/admin/ and login using newly created credentials.
+Then visit http://localhost:8000/ to make sure that Basic Django project is up and running.
 
+Visit http://localhost:8000/admin/ and login using newly created credentials.
 
 Visit http://localhost:8000/api/v1/makeshort to start adding data in Database
 
